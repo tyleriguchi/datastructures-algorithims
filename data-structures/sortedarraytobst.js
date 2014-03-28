@@ -1,18 +1,12 @@
 var SortedToBST = function(list) {
 	var node = {}
 
-	if (list === null) {
-		return list;
+	if (list.length === 0) {
+		return null;
 	}
 	else if (list.length === 1) {
 		node.root = list[0];
 		node.left = null;
-		node.right = null;
-		return node;
-	}
-	else if (list.length === 2) {
-		node.root = list[1];
-		node.left = list[0];
 		node.right = null;
 		return node;
 	}
@@ -29,5 +23,5 @@ var SortedToBST = function(list) {
 
 module.exports.SortedToBST = SortedToBST;
 
-// var list = [1,3,5,7,9,10,15,17];
-// console.log(SortedToBST(list));
+var list = [1,3,5,7,9,10,12,15,16,20,36,50,61];
+console.log(SortedToBST(list));

@@ -15,9 +15,8 @@ var rangeSearch = function(bst, low, high) {
   }
   else {
     var left = rangeSearch(bst.left, low, high);
-    console.log(left);
     var right = rangeSearch(bst.right, low, high);
-    console.log(right);
+    
     if (bst.root > low && bst.root < high) {
       return left.concat(bst.root, right);
     }
