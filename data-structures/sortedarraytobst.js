@@ -1,31 +1,33 @@
-function SortedtoBST(list) {
+var SortedToBST = function(list) {
+	var node = {}
 
-	var mid = Math.floor(list.length/2);
-
-
-	var root = new Node(list[mid]);
-
-	if (mid == 0) {
-		return root;
+	if (list === null) {
+		return list;
 	}
-	// else if ()
+	else if (list.length === 1) {
+		node.root = list[0];
+		node.left = null;
+		node.right = null;
+		return node;
+	}
+	else if (list.length === 2) {
+		node.root = list[1];
+		node.left = list[0];
+		node.right = null;
+		return node;
+	}
 	else {
-		left_list = list.splice(0,mid);
-		right_list = list.splice(mid);
-		root.left = SortedtoBST(left_list);
-		root.right = SortedtoBST(right_list);
+		var mid = Math.floor(list.length/2);
+		var left_list = list.slice(0, mid);
+		var right_list = list.slice(mid+1);
+		node.root = list[mid];
+		node.left = SortedToBST(left_list);
+		node.right = SortedToBST(right_list);
+		return node;
 	}
-	console.log(root);
 }
 
-var Node = function(value) {
-	return {
-		value: value,
-		left: null,
-		right: null
-	}
-};
+module.exports.SortedToBST = SortedToBST;
 
-list = [1,3,5,7,9];
-
-console.log(SortedtoBST(list));
+// var list = [1,3,5,7,9,10,15,17];
+// console.log(SortedToBST(list));
