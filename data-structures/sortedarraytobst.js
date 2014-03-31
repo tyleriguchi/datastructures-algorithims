@@ -1,5 +1,9 @@
 var SortedToBST = function(list) {
-	var node = {}
+	var node = {
+		root: null,
+		left: null,
+		right: null
+	};
 
 	if (list.length === 0) {
 		return null;
@@ -19,7 +23,7 @@ var SortedToBST = function(list) {
 		node.right = SortedToBST(right_list);
 		return node;
 	}
-}
+};
 
 module.exports.SortedToBST = SortedToBST;
 
